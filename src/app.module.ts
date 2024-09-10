@@ -9,12 +9,12 @@ import { AppService } from './app.service';
 import { BoardModule } from './board/board.module';
 import { AuthModule } from './auth/auth.module';
 import { PassportModule } from '@nestjs/passport';
-import { JwtModule } from '@nestjs/jwt';
 
 
 @Module({
   imports: [
     ConfigModule.forRoot({
+      envFilePath: process.env.NODE_ENV === 'production' ? '.env.production' : '.env',
       isGlobal: true,
       load: [typeormConfig],
     }),
