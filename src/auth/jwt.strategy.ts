@@ -5,8 +5,8 @@ import { ConfigService } from '@nestjs/config';
 import { config as dotenvConfig } from 'dotenv';
 import { Request } from 'express';
 
-dotenvConfig({ path: '.env' })
-
+const envFile = process.env.NODE_ENV === 'production' ? '.env.production' : '.env';
+dotenvConfig({ path: envFile });
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
     constructor(protected configService: ConfigService) {

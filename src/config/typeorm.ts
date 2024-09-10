@@ -2,7 +2,8 @@ import { registerAs } from '@nestjs/config';
 import { DataSource, DataSourceOptions } from 'typeorm';
 import { config as dotenvConfig } from 'dotenv';
 
-dotenvConfig({ path: '.env' });
+const envFile = process.env.NODE_ENV === 'production' ? '.env.production' : '.env';
+dotenvConfig({ path: envFile });
 
 const databaseConfig: DataSourceOptions = {
     type: 'postgres',

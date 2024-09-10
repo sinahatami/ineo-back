@@ -5,8 +5,8 @@ import * as bcrypt from 'bcryptjs';
 import { UserService } from 'src/user/user.service';
 import { config as dotenvConfig } from 'dotenv';
 
-dotenvConfig({ path: '.env' })
-
+const envFile = process.env.NODE_ENV === 'production' ? '.env.production' : '.env';
+dotenvConfig({ path: envFile })
 @Injectable()
 export class AuthService {
     constructor(

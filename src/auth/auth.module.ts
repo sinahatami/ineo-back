@@ -6,9 +6,7 @@ import { AuthController } from './auth.controller';
 import { UserModule } from '../user/user.module';
 import { JwtStrategy } from './jwt.strategy';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { config as dotenvConfig } from 'dotenv';
 
-dotenvConfig({ path: '.env' })
 
 @Module({
     imports: [
