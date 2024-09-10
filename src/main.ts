@@ -10,6 +10,8 @@ async function bootstrap() {
 
   app.enableCors();
 
+  app.setGlobalPrefix('api')
+
   app.useGlobalInterceptors(new ResponseInterceptor(), new ClassSerializerInterceptor(app.get(Reflector)));
 
   const reflector = app.get(Reflector);
