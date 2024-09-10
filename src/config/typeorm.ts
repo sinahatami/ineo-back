@@ -14,7 +14,8 @@ const databaseConfig: DataSourceOptions = {
     database: process.env.DATABASE_NAME,
     entities: ['dist/**/*.entity{.ts,.js}'],
     migrations: ['dist/config/migration/*{.ts,.js}'],
-    synchronize: true,
+    synchronize: process.env.NODE_ENV !== 'production',
+    ssl: process.env.DATABASE_SSL === 'true' ? { rejectUnauthorized: false } : false,
 };
 
 export default registerAs('typeorm', () => databaseConfig);
