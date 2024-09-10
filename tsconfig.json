@@ -6,16 +6,16 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
-    "target": "ES2021",
+    "target": "ES2017",
     "sourceMap": true,
-    "outDir": "./dist",
+    "outDir": "./dist", // Ensures compiled files go to the dist folder
     "baseUrl": "./",
-    "incremental": true,
-    "skipLibCheck": true,
-    "strictNullChecks": false,
-    "noImplicitAny": false,
-    "strictBindCallApply": false,
-    "forceConsistentCasingInFileNames": false,
-    "noFallthroughCasesInSwitch": false
-  }
+    "incremental": true
+  },
+  "include": [
+    "src/**/*"
+  ], // Include all TypeScript files in the src folder
+  "exclude": [
+    "node_modules"
+  ]
 }
